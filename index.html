@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asana 2026 Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 1%;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #f76b8a 0%, #f857a6 100%);
+            color: white;
+            padding: 20px 1%;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            font-size: 0.75em;
+            opacity: 0.95;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            background: #f6f8fb;
+            border-bottom: 2px solid #e8ecf1;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .nav-tabs::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .tab-btn {
+            flex: 1;
+            min-width: 80px;
+            padding: 12px 8px;
+            border: none;
+            background: transparent;
+            color: #6b778c;
+            font-size: 0.75em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        .tab-btn.active {
+            color: #f76b8a;
+            border-bottom: 3px solid #f76b8a;
+        }
+        
+        .content {
+            padding: 1%;
+            max-height: calc(100vh - 200px);
+            overflow-y: auto;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section {
+            margin-bottom: 20px;
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 12px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .section h2 {
+            font-size: 0.95em;
+            color: #172b4d;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section h2::before {
+            content: '▶';
+            font-size: 0.7em;
+            margin-right: 8px;
+            color: #667eea;
+        }
+        
+        .step {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e8ecf1;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 0.7em;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .step-text {
+            font-size: 0.8em;
+            color: #42526e;
+            line-height: 1.5;
+        }
+        
+        .tip {
+            background: #fff4e6;
+            border-left: 4px solid #ffab00;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            font-size: 0.75em;
+            color: #6b778c;
+        }
+        
+        .tip::before {
+            content: '💡 TIP: ';
+            font-weight: bold;
+            color: #ff9800;
+        }
+        
+        .skill-card {
+            background: white;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #e8ecf1;
+            transition: all 0.3s;
+        }
+        
+        .skill-card:active {
+            transform: scale(0.98);
+            border-color: #667eea;
+        }
+        
+        .skill-title {
+            font-size: 0.85em;
+            font-weight: 600;
+            color: #172b4d;
+            margin-bottom: 6px;
+        }
+        
+        .skill-desc {
+            font-size: 0.75em;
+            color: #6b778c;
+            line-height: 1.4;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background: #e8ecf1;
+            border-radius: 3px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 15px 1%;
+            background: #f6f8fb;
+            font-size: 0.7em;
+            color: #6b778c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Asana 2026 Guide</h1>
+            <p>Master task management & collaboration</p>
+        </div>
+        
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="showTab('getting-started')">Start</button>
+            <button class="tab-btn" onclick="showTab('basics')">Basics</button>
+            <button class="tab-btn" onclick="showTab('what-can-do')">Can Do</button>
+            <button class="tab-btn" onclick="showTab('what-can-create')">Create</button>
+            <button class="tab-btn" onclick="showTab('use-cases')">Use Cases</button>
+            <button class="tab-btn" onclick="showTab('advanced')">Advanced</button>
+            <button class="tab-btn" onclick="showTab('skills')">Skills</button>
+            <button class="tab-btn" onclick="showTab('tips')">Tips</button>
+        </div>
+        
+        <div class="content">
+            <!-- Getting Started Tab -->
+            <div id="getting-started" class="tab-content active">
+                <div class="section">
+                    <h2>Welcome to Asana</h2>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Download Asana from App Store or Google Play</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Create account with email or Google/Apple sign-in</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Complete initial setup: name, photo, and work preferences</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="step-text">Choose a template or start with a blank workspace</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>First Project Setup</h2>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Tap the + icon to create your first project</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Name your project and choose privacy settings</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Select layout: List, Board, Timeline, or Calendar view</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="step-text">Add team members by tapping "Share" button</span>
+                    </div>
+                </div>
+                
+                <div class="tip">
+                    Start with a simple personal project to learn the interface before managing team work.
+                </div>
+            </div>
+            
+            <!-- Basics Tab -->
+            <div id="basics" class="tab-content">
+                <div class="section">
+                    <h2>Creating Tasks</h2>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Tap the + button or "Add task" in any project</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Enter task name and press return for quick add</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Tap task to add details: description, due date, assignee</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="step-text">Add subtasks for breaking down complex tasks</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>Task Management</h2>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Swipe right on task to mark complete</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Swipe left to access more options (delete, duplicate)</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Drag and drop tasks to reorder or move between sections</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="step-text">Use filters to view tasks by assignee, due date, or status</span>
+                    </div>
+                </div>
+                
+                <div class="tip">
+                    Use keyboard shortcut "Tab+Q" on desktop to quickly add tasks. On mobile, use voice input for faster task creation.
+                </div>
+            </div>
+            
+            <!-- What Can I Create Tab -->
+            <div id="what-can-create" class="tab-content">
+                <div class="section">
+                    <h2>📋 Project Types</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Marketing Campaign:</strong> Track launches, content calendar, social media posts, ad performance</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Product Launch:</strong> Roadmap, feature development, QA testing, release notes</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Event Planning:</strong> Venue booking, vendor coordination, agenda, attendee list</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Content Production:</strong> Blog posts, videos, podcasts, editorial calendar</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Sales Pipeline:</strong> Lead tracking, deal stages, client onboarding</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Sprint Planning:</strong> User stories, bugs, backlog, sprint reviews</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Hiring Process:</strong> Job postings, candidate pipeline, interviews, onboarding</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>🎯 Workflow Templates</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Kanban Board:</strong> To Do → In Progress → In Review → Done</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Agile Sprint:</strong> Backlog → This Sprint → In Dev → QA → Released</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Creative Review:</strong> Draft → Client Review → Revisions → Approved</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Request Intake:</strong> New → Needs Info → Assigned → In Progress → Complete</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Bug Tracking:</strong> Reported → Triaged → Assigned → Fixed → Verified</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>📊 Custom Dashboards</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Team Workload:</strong> See who's overloaded, available capacity, task distribution</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Project Status:</strong> Track on-track vs at-risk projects, milestones, blockers</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Performance Metrics:</strong> Completion rates, cycle time, overdue tasks</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Goal Progress:</strong> Company OKRs, team objectives, individual goals</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>📝 Forms & Intake</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>IT Support Request:</strong> Issue description, priority, category, screenshots</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Design Request:</strong> Project brief, dimensions, brand guidelines, deadline</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Content Request:</strong> Topic, target audience, word count, keywords, due date</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Bug Report:</strong> Steps to reproduce, expected vs actual result, browser/device</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Feature Request:</strong> Problem statement, use case, priority, mockups</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>⚙️ Automation Rules</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Auto-assign:</strong> When task added to section → assign to team member</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Due date reminder:</strong> 2 days before due → comment with reminder</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Status update:</strong> When all subtasks complete → mark parent task done</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Escalation:</strong> Task overdue → add tag and notify manager</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Approval workflow:</strong> Task moved to "Review" → assign to approver</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>🎨 Custom Fields Examples</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Priority:</strong> Dropdown (Low, Medium, High, Urgent)</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Status:</strong> Dropdown (Not Started, In Progress, On Hold, Complete)</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Budget:</strong> Number field with currency (track project costs)</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Department:</strong> Dropdown (Marketing, Sales, Engineering, Design)</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Effort:</strong> Dropdown (Small, Medium, Large, XL)</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Launch Date:</strong> Date field (separate from task due date)</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Client Name:</strong> Text field (for agency/consulting work)</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>📅 Calendar Systems</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Editorial Calendar:</strong> Blog posts, social media, newsletters scheduled</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Marketing Calendar:</strong> Campaign launches, events, promotions</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Product Roadmap:</strong> Feature releases, milestones, sprints</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Training Schedule:</strong> Workshops, onboarding sessions, team meetings</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>🏗️ Portfolio Structures</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Company Initiatives:</strong> Group all strategic projects by quarter</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Client Work:</strong> Track multiple client projects in one view</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Product Development:</strong> All feature teams and their projects</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Marketing Programs:</strong> All campaigns, events, content initiatives</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>💡 Personal Use Cases</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Life Dashboard:</strong> Personal goals, habits, finances, health tracking</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Home Renovation:</strong> Budget, contractors, timeline, material purchases</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Wedding Planning:</strong> Venue, vendors, guest list, timeline, budget</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Freelance Business:</strong> Clients, invoices, projects, proposals</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Learning Journey:</strong> Courses, reading list, practice projects, certifications</span>
+                    </div>
+                </div>
+                
+                <div class="tip">
+                    Start with Asana's built-in templates and customize them to fit your exact workflow needs!
+                </div>
+                
+                <div class="tip">
+                    Pro tip: Create a "Template Project" where you store reusable task lists, then duplicate as needed.
+                </div>
+            </div>
+            
+            <!-- Use Cases Tab -->
+            <div id="use-cases" class="tab-content">
+                <div class="section">
+                    <h2>👔 For Project Managers</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Problem:</strong> Losing track of project status across multiple teams</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Solution:</strong> Create a Portfolio with all projects. Use Timeline view to spot bottlenecks. Set up weekly status update reminders.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Result:</strong> One dashboard shows all project health, risks, and deadlines at a glance.</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>💻 For Software Developers</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Problem:</strong> Sprint planning is chaotic, bugs get lost, unclear priorities</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Solution:</strong> Create Board with sections: Backlog → Sprint → In Dev → Code Review → QA → Done. Add custom fields for Story Points and Priority.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Result:</strong> Clear sprint visibility, bug tracking, and velocity measurements.</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>🎨 For Designers/Creatives</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Problem:</strong> Too many revision rounds, unclear feedback, missed deadlines</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Solution:</strong> Create project with stages: Brief → Concept → Review → Revisions → Final → Delivered. Use proofing feature for feedback directly on designs.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Result:</strong> Centralized feedback, version control, and approval tracking.</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>📣 For Marketing Teams</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Problem:</strong> Campaign launches delayed, content scattered, team overworked</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Solution:</strong> Create Calendar view for editorial planning. Use forms for content requests. Set up automation to assign tasks based on content type.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Result:</strong> Campaigns launch on time, content pipeline visible, workload balanced.</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>💼 For Freelancers/Solopreneurs</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Problem:</strong> Juggling multiple clients, forgetting tasks, unprofessional communication</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Solution:</strong> Create project per client. Use My Tasks for daily priorities. Set recurring tasks for invoicing and follow-ups.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Result:</strong> Professional client management, nothing falls through cracks, stress reduced.</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>📞 For Customer Support</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Problem:</strong> Tickets buried in email, response times slow, no escalation process</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Solution:</strong> Create intake form for support requests. Board view: New → Assigned → In Progress → Awaiting Customer → Resolved. Custom field for Priority.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Result:</strong> Every ticket tracked, SLA compliance visible, escalation automated.</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>🏢 For Operations Teams</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Problem:</strong> Repetitive processes done inconsistently, training takes forever</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Solution:</strong> Create template projects for SOPs. Document each step as task with subtasks. Add checklists and attachments for training materials.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Result:</strong> Standardized processes, faster onboarding, quality consistency.</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>📚 For Educators/Teachers</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Problem:</strong> Lesson planning scattered, grading overwhelming, student tracking manual</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Solution:</strong> Create project per class with sections for each week. Tasks for assignments, exams, parent meetings. Calendar view for semester planning.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Result:</strong> Organized curriculum, assignment deadlines clear, no grading forgotten.</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>🎬 For Video/Content Producers</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Problem:</strong> Production scattered across tools, collaborators out of sync, deadlines missed</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Solution:</strong> Create project with phases: Pre-production → Filming → Editing → Review → Publishing. Attach scripts, footage links, edit notes to tasks.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Result:</strong> Entire production in one place, team aligned, videos published on schedule.</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>🏗️ For Construction/Contractors</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Problem:</strong> Job sites uncoordinated, materials delayed, subcontractors confused</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Solution:</strong> Project per job site with Timeline view for Gantt chart. Tasks for each trade. Custom fields for Cost, Vendor, Status. Attach photos and permits.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Result:</strong> Jobs finish on time and budget, subcontractors know schedule, clients updated.</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>💍 For Event Planners</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Problem:</strong> Vendor chaos, budget overruns, timeline confusion, client stress</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Solution:</strong> Create project with Timeline for countdown. Sections: Venue, Catering, Decor, Entertainment, etc. Custom fields for Budget, Vendor Contact, Payment Status.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Result:</strong> Every detail tracked, budget controlled, event runs smoothly, happy clients.</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>🔬 For Research Teams</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Problem:</strong> Experiments duplicated, data scattered, collaboration difficult</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Solution:</strong> Project for each study. Tasks for experiments with protocols attached. Custom fields: Hypothesis, Status, Results. Comment threads for findings discussion.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Result:</strong> Research documented, team coordinated, findings preserved, papers published.</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>🏥 For Healthcare Admins</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Problem:</strong> Compliance tracking manual, staff scheduling chaotic, equipment maintenance forgotten</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Solution:</strong> Projects for: Staff Schedules, Equipment Maintenance, Compliance Audits. Recurring tasks for inspections. Forms for incident reports.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Result:</strong> Compliance maintained, staff schedules clear, equipment serviced on time.</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>🎓 For Students</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Problem:</strong> Assignments forgotten, group projects chaotic, deadlines missed</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Solution:</strong> Project per class. Calendar view for exam dates. My Tasks for daily to-do. Share group project with classmates for collaboration.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Result:</strong> Better grades, less stress, group work coordinated, time managed well.</span>
+                    </div>
+                </div>
+                
+                <div class="tip">
+                    Pick the use case closest to your role and start with that template - you can always customize later!
+                </div>
+                
+                <div class="tip">
+                    Mix and match strategies from different roles. A freelance designer might use developer sprints + event planning budgeting!
+                </div>
+            </div>
+            
+            <!-- Advanced Tab -->
+            <div id="advanced" class="tab-content">
+                <div class="section">
+                    <h2>Custom Fields</h2>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Open project settings → Custom Fields</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Create fields: dropdown, number, text, or date</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Apply fields to track priority, status, or budget</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="step-text">Sort and filter tasks based on custom field values</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>Automation & Rules</h2>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Access Rules from project menu (Premium feature)</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Set triggers: task completed, due date approaching, etc.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Define actions: assign, move, comment, or notify</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="step-text">Test rules and monitor automation activity log</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>Dependencies & Timeline</h2>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Switch to Timeline view for Gantt chart</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Click task details → Dependencies tab</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Mark tasks as "Waiting on" or "Blocking"</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="step-text">Adjust dates by dragging task bars in Timeline</span>
+                    </div>
+                </div>
+                
+                <div class="tip">
+                    Use dependencies to automatically shift related tasks when deadlines change.
+                </div>
+            </div>
+            
+            <!-- What Can I Do Tab -->
+            <div id="what-can-do" class="tab-content">
+                <div class="section">
+                    <h2>Task Management</h2>
+                    <div class="step">
+                        <span class="step-text">✓ Create unlimited tasks and subtasks</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Set due dates, start dates, and time estimates</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Assign tasks to team members</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Add descriptions with rich text formatting</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Attach files up to 100MB per file</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Create recurring tasks (daily, weekly, monthly)</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Set task priorities (Low, Medium, High)</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>Project Organization</h2>
+                    <div class="step">
+                        <span class="step-text">✓ Create unlimited projects and sections</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Use 4 view types: List, Board, Timeline, Calendar</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Make projects public or private</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Add project descriptions and briefs</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Color-code projects for quick identification</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Duplicate projects and save as templates</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Archive completed projects</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>Collaboration Features</h2>
+                    <div class="step">
+                        <span class="step-text">✓ Comment on tasks with @mentions</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Like and react to comments with emojis</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Tag teammates for visibility</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Follow tasks to get notifications</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Share project links with team or guests</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Create project status updates</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Send messages in project conversations</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>Premium Features 👑</h2>
+                    <div class="step">
+                        <span class="step-text">✓ Create custom fields (dropdown, number, text, date)</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Set up automation rules and workflows</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ View Timeline (Gantt chart)</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Create task dependencies</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Build custom forms for intake requests</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Track time on tasks</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Set milestones in projects</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Advanced search and reporting</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>Business/Enterprise Features 🏢</h2>
+                    <div class="step">
+                        <span class="step-text">✓ Create portfolios to track multiple projects</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Set company-wide goals and objectives</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Workload management and capacity planning</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Custom dashboards and reports</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Proofing and approval workflows</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Lock custom fields to prevent changes</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ SAML/SSO authentication</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>Integrations & Extensions</h2>
+                    <div class="step">
+                        <span class="step-text">✓ Connect with 200+ apps (Slack, Gmail, Zoom)</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Sync with Google Calendar and Outlook</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Import tasks from email</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Use mobile widgets for quick access</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Browser extensions for Chrome, Firefox, Safari</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ API access for custom integrations</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>Hidden Features 🎁</h2>
+                    <div class="step">
+                        <span class="step-text">✓ Use Tab+B to bold text in descriptions</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Type :unicorn: or other emoji codes</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Multi-select tasks with Shift+Click</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Search for tasks using advanced operators</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Create private tasks in My Tasks section</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text">✓ Celebrate task completion with animations</span>
+                    </div>
+                </div>
+                
+                <div class="tip">
+                    Try typing "Tab+Tab" on desktop to see all keyboard shortcuts instantly!
+                </div>
+                
+                <div class="tip">
+                    Free plan includes unlimited tasks, projects, and 15 team members - perfect for small teams.
+                </div>
+            </div>
+            
+            <!-- Skills Tab -->
+            <div id="skills" class="tab-content">
+                <div class="skill-card">
+                    <div class="skill-title">Beginner: Navigation</div>
+                    <div class="skill-desc">Master the sidebar, My Tasks, Inbox, and project switching. Learn to navigate between different views efficiently.</div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-title">Beginner: Task Creation</div>
+                    <div class="skill-desc">Create tasks with descriptions, due dates, and assignees. Understand priority levels and task organization.</div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-title">Intermediate: Collaboration</div>
+                    <div class="skill-desc">Comment on tasks, @mention teammates, attach files, and use reactions. Master async communication.</div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 70%"></div></div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-title">Intermediate: Project Templates</div>
+                    <div class="skill-desc">Create and use templates for recurring projects. Customize sections, fields, and default assignees.</div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 60%"></div></div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-title">Advanced: Portfolio Management</div>
+                    <div class="skill-desc">Track multiple projects in portfolios. Monitor progress, status, and resource allocation across initiatives.</div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 45%"></div></div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-title">Advanced: Reporting & Dashboards</div>
+                    <div class="skill-desc">Build custom reports and dashboards. Analyze team performance, workload, and project health metrics.</div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 30%"></div></div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-title">Expert: API & Integrations</div>
+                    <div class="skill-desc">Connect Asana with Slack, Gmail, Salesforce. Use API for custom workflows and data synchronization.</div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 15%"></div></div>
+                </div>
+            </div>
+            
+            <!-- Tips Tab -->
+            <div id="tips" class="tab-content">
+                <div class="section">
+                    <h2>Productivity Hacks</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Use My Tasks:</strong> Review "Today", "Upcoming", and "Later" daily to stay organized and prioritize effectively.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Inbox Zero:</strong> Clear your Asana inbox daily by acting on, archiving, or delegating notifications.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Quick Add:</strong> Use Quick Add (mobile: + button) from anywhere to capture ideas instantly.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Keyboard Shortcuts:</strong> Learn Tab+Q (quick add), Tab+Z (undo), Tab+Enter (complete) on desktop.</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>Team Collaboration</h2>
+                    <div class="step">
+                        <span class="step-text"><strong>Status Updates:</strong> Post weekly project status updates to keep stakeholders informed without meetings.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>@Mentions:</strong> Use @mentions in comments to notify specific people and keep discussions threaded.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Forms:</strong> Create intake forms for requests to standardize information gathering.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-text"><strong>Goals:</strong> Link tasks to company goals to maintain alignment and track progress.</span>
+                    </div>
+                </div>
+                
+                <div class="tip">
+                    Enable push notifications only for tasks assigned to you or @mentions to reduce distraction.
+                </div>
+                
+                <div class="tip">
+                    Use Board view for workflows (To Do, In Progress, Done) and List view for linear task tracking.
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            © 2026 Asana Guide • Beginner to Advanced
+        </div>
+    </div>
+    
+    <script>
+        function showTab(tabId) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Remove active from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Highlight active button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
